@@ -16,14 +16,11 @@ stdin.on("data", key => {
   if (key === "b") {
     process.stdout.write("\x07");
   }
-  if (Number(key) >= 1 || Number(key) <= 9) {
+  if (key >= 1 || key <= 9) {
     console.log(`setting timer for ${key} seconds...`);
     setTimeout(() => {
       process.stdout.write("\x07");
-    }, Number(key)*1000);
+    }, key*1000);
   }
-
-  //process.stdout.write(".");
 });
 
-//console.log("after callback");
